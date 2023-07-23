@@ -15,7 +15,7 @@ box-sizing: border-box;
 body {
 font-family: 'Montserrat', sans-serif;
 font-weight: 200;
-color: var(--tg-theme-bg-color);
+color: firebrick;
 }
 #main {
 width: 100%;
@@ -45,19 +45,59 @@ font-weight: 500;
 cursor: pointer;
 transition: all 500ms ease;
 color: burlywood;
-background: var(--tg-theme-button-text-color);
+background: green;
 }
 button:hover {
-background: var(--tg-secondary-bg-color);
+background: blue;
+}
+#form {
+    display: none;
+    text-align: center;
+}
+input {
+    width: 90%;
+    outline: none;
+    margin: 10px 5%;
+    padding: 15px 10px;
+    font-size: 14px;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+input:focus {
+    border-color: #db5d5d;
 }
 </style>
 </head>
 <body>
 <div id="main">
 <h1>Онлайн магазин</h1>
-<img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png">
+    <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png">
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Accusantium ipsum magni, molestias.</p>
 <button id="buy">Купить</button>
-</div>
+    </div>
+    <form id="form">
+        <input type="text" placeholder="Имя" id="user_name">
+        <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="Телефон" id="user_phone">
+        <button id="order">Оформить</button>
+    </form>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let tg = window.document.getElementById("buy");
+        let order = document.getElementById("order");
+
+        buy.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none"
+            document.getElementById("form").style.display = "block"
+            document.getElementById("user_name").value = tg.InitDataUnsafe.user.first_name + " " + tg.InitDataUnsafe.user.last_name
+
+        });
+
+        order.addEventListener("click", () => {
+            tg.close();
+        })
+    </script>
+
 </body>
 </html>
