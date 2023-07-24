@@ -80,7 +80,9 @@ input:focus {
         <input type="text" placeholder="Имя" id="user_name">
         <input type="text" placeholder="Email" id="user_email">
         <input type="text" placeholder="Телефон" id="user_phone">
+        <div id="error"></div>
         <button id="order">Оформить</button>
+
     </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -96,7 +98,29 @@ input:focus {
 
         });
 
+
         order.addEventListener("click", () => {
+            document.getElementById("error").innerText = '';
+            let name = document.getElementById("user_name").value
+            let email = document.getElementById("user_email").value
+            let phone = document.getElementById("user_phone").value
+                document.getElementById("error").innerText = '';
+            if(name.length < 1) {
+                document.getElementById("error").innerText = 'Ошибка в имени! Введите значение от 2 букв';
+                return;
+            }
+            if(phone.length < 10) {
+                document.getElementById("error").innerText = 'Ошибка в номер! Введите значение от 10 букв, в формате: 70000000000';
+                return;
+            }
+            if(email.length < 10) {
+                document.getElementById("error").innerText = 'Ошибка в номер! Введите значение от 10 букв!';
+                return;
+            }
+
+
+
+
             tg.close();
         })
     </script>
