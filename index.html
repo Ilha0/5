@@ -117,7 +117,12 @@ input:focus {
                 document.getElementById("error").innerText = 'Ошибка в номер! Введите значение от 10 букв!';
                 return;
             }
-
+            let data = {
+                name: name,
+                email: email,
+                phone: phone
+            }
+            tg.sendData(JSON.stringify(data));
 
 
 
