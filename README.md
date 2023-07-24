@@ -76,6 +76,7 @@ input:focus {
 <button id="buy">Купить</button>
     </div>
     <form id="form">
+        <h1>Оформление покупки</h1>>
         <input type="text" placeholder="Имя" id="user_name">
         <input type="text" placeholder="Email" id="user_email">
         <input type="text" placeholder="Телефон" id="user_phone">
