@@ -84,7 +84,7 @@ input:focus {
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
-        let tg = window.document.getElementById("buy");
+        let buy = document.getElementById("buy");
         let order = document.getElementById("order");
 
         buy.addEventListener("click", () => {
@@ -98,6 +98,8 @@ input:focus {
             tg.close();
         })
     </script>
+
+
 
 </body>
 </html>
